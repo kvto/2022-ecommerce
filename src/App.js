@@ -19,7 +19,7 @@ const useStyles = makeStyles(() =>({
   },
   navbar:{
     marginTop: '10px'
-  }
+  },
 }));
 
 export default App;
