@@ -9,15 +9,15 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+import { deepPurple } from '@mui/material/colors';
 import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { makeStyles} from '@mui/styles'
 import polo from "../image/185230695_321287142672314_2980049136382795457_n.jpg";
 import GoogleFontLoader from 'react-google-font-loader';
 import NoSsr from '@mui/base/NoSsr';
-import image from '../image/G.jpeg'
 import cx from 'clsx';
+import Badge from '@mui/material/Badge';
 const family = 'Rubik';
 
 
@@ -47,23 +47,28 @@ export default function Product() {
         <GoogleFontLoader fonts={[{ font: family, weights: [900, 700] }]} />
       </NoSsr>
     <Card sx={{ maxWidth: 200 }} className={cx(classes.card)} style={{backgroundColor: "#9975aa"}}>
-      <CardHeader style={{color: "#ffff"}}
+      <CardHeader style={{color: "#ffff"}} className={classes.header} alignItems="center"
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+          <Avatar sx={{ bgcolor: deepPurple[400] }} aria-label="recipe">
+            D
+            <StyledBadge
+            overlap="circular"
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            variant="dot"
+            >
+</StyledBadge>
           </Avatar>
         }
         action={
-          <Typography
+          <Typography className={classes.precio}
             variant='h6'
-            color='white'>
-            {"S/. 20.00"}
-           
-
+            color='white'
+            fontWeight= "bold">
+            S/. 20.00
           </Typography>
         }
         title="Polos estampados"
-       
+        subheader="Disponible✅"
       />
       <CardMedia
         className={classes.media}
@@ -122,7 +127,7 @@ const useStyles = makeStyles(() =>({
     fontWeight: 600,
     display: "grid",
     placeContent: "center",
-    
+    borderRadius: 10,
     
   },
   card: {
@@ -134,21 +139,59 @@ const useStyles = makeStyles(() =>({
     marginLeft: "10px",
     opacity: 0.91,
     },
+    header:{
+
+        },
     cardcontent:{
-      backgroundColor: "#913f6e"
+      backgroundColor: "#913f6e",
+      borderRadius: 10,
     },
     section:{
-      backgroundImage: `url(${image})`,
+      // backgroundImage: `url(${image})`,
       position: "relative",
       backgroundPosition: 'center', 
           backgroundSize: 'cover', 
           backgroundRepeat: 'no-repeat',
-          height: '110vh',
-          weight : '90vh'
+          height: '130vh',
+          maxWidth: 345,
       
       },
       body: {
         color: "#ffff"
+      },
+      precio:{
+        display:"flex",
+        position: "relative",
+        margin: "100px"
       }
 }));
 
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    backgroundColor: '#44b700',
+    color: '#44b700',
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    margin: '-2px',
+    '&::after': {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      animation: 'ripple 1.2s infinite ease-in-out',
+      border: '1px solid currentColor',
+      content: '""',
+    },
+  },
+  '@keyframes ripple': {
+    '0%': {
+      transform: 'scale(.8)',
+      opacity: 1,
+    },
+    '100%': {
+      transform: 'scale(2.4)',
+      opacity: 0,
+    },
+  },
+}));
