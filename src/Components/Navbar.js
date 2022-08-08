@@ -20,8 +20,8 @@ export default function Navbar() {
         <Toolbar className={classes.toolBar}>
           <IconButton>
             <img src={log} 
-            alt="D31" 
-            width={"50px"}
+            alt="KV" 
+            width={"100px"}
             margin={"1000px"}
             className={classes.image}/>
           </IconButton>
@@ -68,5 +68,6 @@ const useStyles = makeStyles(() =>({
     },
     menuButton:{
       height:"90px" 
-    }
+    },
+
   }));

@@ -13,13 +13,12 @@ import { deepPurple } from '@mui/material/colors';
 import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { makeStyles} from '@mui/styles'
-import polo from "../image/185230695_321287142672314_2980049136382795457_n.jpg";
+
 import GoogleFontLoader from 'react-google-font-loader';
 import NoSsr from '@mui/base/NoSsr';
 import cx from 'clsx';
 import Badge from '@mui/material/Badge';
 const family = 'Rubik';
-
 
 
 const ExpandMore = styled((props) => {
@@ -33,7 +32,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Product() {
+export default function Product({product : { name, productType, image, price, rating, description, avatar, tallas}}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -47,39 +46,42 @@ export default function Product() {
         <GoogleFontLoader fonts={[{ font: family, weights: [900, 700] }]} />
       </NoSsr>
     <Card sx={{ maxWidth: 200 }} className={cx(classes.card)} style={{backgroundColor: "#9975aa"}}>
-      <CardHeader style={{color: "#ffff"}} className={classes.header} alignItems="center"
+      
+      <CardHeader style={{color: "#ffff"}} className={classes.header} alignItems="center" 
         avatar={
           <Avatar sx={{ bgcolor: deepPurple[400] }} aria-label="recipe">
-            D
+            {avatar}
             <StyledBadge
             overlap="circular"
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             variant="dot"
             >
-</StyledBadge>
+          </StyledBadge>
           </Avatar>
         }
         action={
           <Typography className={classes.precio}
             variant='h6'
             color='white'
-            fontWeight= "bold">
-            S/. 20.00
+            fontWeight= "bold"
+            fontFamily= "Comic Sans">
+            S/. {price}
           </Typography>
         }
-        title="Polos estampados"
-        subheader="Disponible✅"
+        title={productType}
+        subheader={tallas}
+        fontFamily= "Comic Sans"
       />
       <CardMedia
         className={classes.media}
         component="img"
         height="194"
-        image= {polo}
-        alt="Polos de chicas"
+        image= {image}
+        alt=" "
       />
       <CardContent className={classes.cardcontent}>
         <Typography variant="body" color="white">
-          Polo para Dama con distintos tipos de diseños personalizados
+          {name}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -87,11 +89,11 @@ export default function Product() {
           <AddShoppingCart fontSize='large' />
         </IconButton>
         <IconButton aria-label="share">
-          {Array(4)
+          {Array(rating)
           .fill()
-          .map((i =>(
+          .map((_, i) =>(
             <p>&#11088;</p>
-          )))}
+          ))}
         </IconButton>
         <ExpandMore
           expand={expanded}
@@ -106,9 +108,7 @@ export default function Product() {
         <CardContent>
          
           <Typography variant="body" color="white">
-            Polos para damas personalizados al gusto.
-            Contando con un estampado de vinil textil
-            con el diseño elegido por el cliente❤
+            {description}
           </Typography>
         </CardContent>
       </Collapse>
@@ -118,7 +118,7 @@ export default function Product() {
 }
 
 
-const useStyles = makeStyles(() =>({
+const useStyles = makeStyles((theme) =>({
   media:{
     weight: "90px",
     height: "260px",
@@ -135,12 +135,12 @@ const useStyles = makeStyles(() =>({
     borderRadius: 16,
     padding: 12,
     backgroundColor: '#e5fcfb',
-    minWidth: 300,
+    minWidth: 260,
     marginLeft: "10px",
     opacity: 0.91,
     },
     header:{
-
+      height: "60px",
         },
     cardcontent:{
       backgroundColor: "#913f6e",
@@ -148,13 +148,8 @@ const useStyles = makeStyles(() =>({
     },
     section:{
       // backgroundImage: `url(${image})`,
-      position: "relative",
-      backgroundPosition: 'center', 
-          backgroundSize: 'cover', 
-          backgroundRepeat: 'no-repeat',
-          height: '130vh',
-          maxWidth: 345,
-      
+
+
       },
       body: {
         color: "#ffff"
@@ -162,7 +157,8 @@ const useStyles = makeStyles(() =>({
       precio:{
         display:"flex",
         position: "relative",
-        margin: "100px"
+        margin: "10px",
+        fontFamily: "Comic Sans"
       }
 }));
 
