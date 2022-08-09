@@ -121,7 +121,7 @@ export default function Product({product : { name, productType, image, price, ra
 const useStyles = makeStyles((theme) =>({
   media:{
     weight: "90px",
-    height: "260px",
+    height: "270px",
     fontFamily: '"Comic Sans"',
     color: "#fff",
     fontWeight: 600,

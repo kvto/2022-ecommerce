@@ -3,7 +3,7 @@ import { makeStyles} from '@mui/styles';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import products from "../product-data"
-import Product from "../Components/Product"
+import CheckoutCard from "../Components/CheckoutCard"
 
 const useStyles = makeStyles((theme) => ({
     root : {
@@ -20,7 +20,7 @@ const CheckoutPage = () =>{
             <React.Fragment>
             {products.map((item) =>(
                 <Grid item  xs={12} sm={8} md={6} lg ={4}>
-                <Product key={item.id} product={item}/>
+                <CheckoutCard key={item.id} product={item}/>
                 </Grid>
             ))}
             </React.Fragment>

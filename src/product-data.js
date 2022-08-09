@@ -25,7 +25,7 @@ const products =[
     },
     {
         id: 3,
-        avatar: "PC",
+        avatar: "C",
         name: "Polera para Caballero con distintos tipos de diseños personalizados 🧑",
         tallas: "(XS,S,M,L)",
         productType: "Polera de caballero",
@@ -37,7 +37,7 @@ const products =[
     },
     {
         id: 4,
-        avatar: "PD",
+        avatar: "D",
         name: "Polera para Dama con distintos tipos de diseños personalizados 👩",
         tallas: "(XS,S,M,L)",
         productType: "Polera de dama",
@@ -49,7 +49,7 @@ const products =[
     },
     {
         id: 5,
-        avatar: "G",
+        avatar: "U",
         name: "Gorra Unisex con distintos tipos de diseños personalizados 🧑👩",
         tallas: "(XS,S,M,L)",
         productType: "Gorra unisex",

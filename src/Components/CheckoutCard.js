@@ -3,21 +3,18 @@ import { styled} from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { deepPurple } from '@mui/material/colors';
-import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { makeStyles} from '@mui/styles'
-
+import DeleteIcon from '@mui/icons-material/Delete';
 import GoogleFontLoader from 'react-google-font-loader';
 import NoSsr from '@mui/base/NoSsr';
 import cx from 'clsx';
 import Badge from '@mui/material/Badge';
+import { Icon } from '@mui/material';
 const family = 'Rubik';
 
 
@@ -79,15 +76,9 @@ export default function Product({product : { name, productType, image, price, ra
         image= {image}
         alt=" "
       />
-      <CardContent className={classes.cardcontent}>
-        <Typography variant="body" color="white">
-          {name}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="Add to Cart">
-          <AddShoppingCart fontSize='large' />
-        </IconButton>
+      
+      <CardActions disableSpacing className={classes.cardActions}>
+        <div className={classes.cardRating}>
         <IconButton aria-label="share">
           {Array(rating)
           .fill()
@@ -95,23 +86,13 @@ export default function Product({product : { name, productType, image, price, ra
             <p>&#11088;</p>
           ))}
         </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
+        </div>
+        <IconButton>
+          <DeleteIcon fontSize='large'/>
+        </IconButton>
+        
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-         
-          <Typography variant="body" color="white">
-            {description}
-          </Typography>
-        </CardContent>
-      </Collapse>
+      
     </Card>
     </div>
   );
@@ -135,9 +116,10 @@ const useStyles = makeStyles((theme) =>({
     borderRadius: 16,
     padding: 12,
     backgroundColor: '#e5fcfb',
-    minWidth: 260,
+    minWidth: 280,
     marginLeft: "10px",
     opacity: 0.91,
+    paddingInline: 7
     },
     header:{
       height: "60px",
@@ -159,6 +141,11 @@ const useStyles = makeStyles((theme) =>({
         position: "relative",
         margin: "10px",
         fontFamily: "Comic Sans"
+      },
+      cardActions:{
+        display: "flex",
+        justifyContent: "space-between",
+        textAlign: "center"
       }
 }));
 
