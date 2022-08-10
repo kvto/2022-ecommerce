@@ -1,4 +1,5 @@
 import Product from "../src/Components/Product"
+import Total from "./Components/Total"
 import Checkout from "../src/Components/CheckoutPage"
 import Navbar from "../src/Components/Navbar"
 import { makeStyles} from '@mui/styles';
@@ -10,7 +11,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Checkout />
+       <Checkout />    
       {/* <Product /> 
      {/* <Product className={classes.navbar}/> */}
     </div>
