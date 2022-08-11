@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import products from "../product-data"
 import CheckoutCard from "../Components/CheckoutCard"
-import Total from "../Components/Total"
+import Total from "./Total"
 
 const useStyles = makeStyles((theme) => ({
     root : {

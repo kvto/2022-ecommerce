@@ -11,9 +11,9 @@ function App() {
   return (
     <div>
       <Navbar />
-       <Checkout />    
-      {/* <Product /> 
-     {/* <Product className={classes.navbar}/> */}
+       {/* <Checkout />     */}
+      <Product /> 
+      <Products />
     </div>
   );
 }
