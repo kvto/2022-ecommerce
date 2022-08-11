@@ -40,6 +40,17 @@ export default function Product({product : { name, productType, image, price, ra
     setExpanded(!expanded);
   };
 
+  const addtoBasket = () => {
+    dispatch({
+      type: actionTypes.ADD_TO_BASKET,
+      item: {
+        id: id,
+        name: name,
+        productType: productType,
+        image:
+      }
+    })
+  }
   return (
 <div className={classes.section}>
     <NoSsr>
@@ -85,7 +96,7 @@ export default function Product({product : { name, productType, image, price, ra
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="Add to Cart">
+        <IconButton aria-label="Add to Cart" onClick={addToBasket}>
           <AddShoppingCart fontSize='large' />
         </IconButton>
         <IconButton aria-label="share">
