@@ -33,9 +33,11 @@ export default function Navbar() {
           <Typography color="#913f6e" variant="h6" component="div" sx={{ flexGrow: 1 }}  >
             Welcome💥
           </Typography>
-          <Button color="warning" className={classes.buttonLogin} variant="outlined">
+          <Link to="/signin">
+           <Button color="warning" className={classes.buttonLogin} variant="outlined">
             <strong>Sign In 📨</strong>
-          </Button>
+          </Button> 
+          </Link>
           <Link to="/checkout-page">
           <IconButton>
             <Badge badgeContent={basket?.length} color="warning">
