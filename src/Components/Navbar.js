@@ -10,9 +10,11 @@ import log from "../image/D31.png"
 import ShoppingCart from '@mui/icons-material/AddShoppingCart';
 import { Badge} from '@mui/material';
 import { Link } from "react-router-dom";
+import {useStateValue} from '../StateProvider';
 
 export default function Navbar() {
     const classes = useStyles();
+    const [{basket}, dispatch] = useStateValue();
 
   return (
     <div className={classes.root}>
@@ -36,7 +38,7 @@ export default function Navbar() {
           </Button>
           <Link to="/checkout-page">
           <IconButton>
-            <Badge badgeContent={2} color="warning">
+            <Badge badgeContent={basket?.length} color="warning">
               <ShoppingCart fontSize="large" aria-label="show cart items" style={{color: "#913f6e"}}/>
             </Badge>
           </IconButton>

@@ -14,8 +14,10 @@ import GoogleFontLoader from 'react-google-font-loader';
 import NoSsr from '@mui/base/NoSsr';
 import cx from 'clsx';
 import Badge from '@mui/material/Badge';
-import { Icon } from '@mui/material';
+import {actionTypes} from '../reducer';
+import {useStateValue} from '../StateProvider';
 const family = 'Rubik';
+
 
 
 const ExpandMore = styled((props) => {
@@ -29,13 +31,19 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Product({product : { name, productType, image, price, rating, description, avatar, tallas}}) {
+export default function Product({product : { id, name, productType, image, price, rating, description, avatar, tallas}}) {
   const classes = useStyles();
+  const [{basket}, dispatch] = useStateValue();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const removeItem = () => dispatch({
+    type: actionTypes.REMOVE_ITEM,
+    id: id,
+  })
 
   return (
 <div className={classes.section}>
@@ -88,7 +96,7 @@ export default function Product({product : { name, productType, image, price, ra
         </IconButton>
         </div>
         <IconButton>
-          <DeleteIcon fontSize='large'/>
+          <DeleteIcon fontSize='large' onClick={removeItem}/>
         </IconButton>
         
       </CardActions>

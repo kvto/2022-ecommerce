@@ -13,11 +13,13 @@ import { deepPurple } from '@mui/material/colors';
 import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { makeStyles} from '@mui/styles'
-
+import {useStateValue} from '../StateProvider'
 import GoogleFontLoader from 'react-google-font-loader';
 import NoSsr from '@mui/base/NoSsr';
+import accounting from 'accounting';
 import cx from 'clsx';
 import Badge from '@mui/material/Badge';
+import {actionTypes} from '../reducer'
 const family = 'Rubik';
 
 
@@ -32,22 +34,28 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Product({product : { name, productType, image, price, rating, description, avatar, tallas}}) {
+export default function Product({product : { id, name, productType, image, price, rating, description, avatar, tallas}}) {
   const classes = useStyles();
+  const [{basket}, dispatch] = useStateValue();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const addtoBasket = () => {
+  const addToBasket = () => {
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
       item: {
-        id: id,
-        name: name,
-        productType: productType,
-        image:
+        id,
+        avatar,
+        name,
+        tallas,
+        productType,
+        price,
+        rating,
+        image,
+        description
       }
     })
   }
@@ -58,7 +66,7 @@ export default function Product({product : { name, productType, image, price, ra
       </NoSsr>
     <Card sx={{ maxWidth: 200 }} className={cx(classes.card)} style={{backgroundColor: "#9975aa"}}>
       
-      <CardHeader style={{color: "#ffff"}} className={classes.header} alignItems="center" 
+      <CardHeader style={{color: "#ffff"}} className={classes.header}
         avatar={
           <Avatar sx={{ bgcolor: deepPurple[400] }} aria-label="recipe">
             {avatar}
@@ -76,7 +84,7 @@ export default function Product({product : { name, productType, image, price, ra
             color='white'
             fontWeight= "bold"
             fontFamily= "Comic Sans">
-            S/. {price}
+            {accounting.formatMoney(price, "PEN ")}
           </Typography>
         }
         title={productType}
