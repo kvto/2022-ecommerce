@@ -9,12 +9,32 @@ import { makeStyles} from '@mui/styles';
 import log from "../image/D31.png"
 import ShoppingCart from '@mui/icons-material/AddShoppingCart';
 import { Badge} from '@mui/material';
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import {useStateValue} from '../StateProvider';
+import firebaseApp from '../firebase';
+import {actionTypes} from '../reducer'
+import { getAuth, signOut} from 'firebase/auth';
+const auth = getAuth(firebaseApp)
 
 export default function Navbar() {
     const classes = useStyles();
-    const [{basket}, dispatch] = useStateValue();
+    const [{basket, user}, dispatch] = useStateValue();
+    let navigate = useNavigate();
+
+    const handleAuth = () =>{
+      if(user){
+        signOut(auth);
+        dispatch({
+          type: actionTypes.EMPTY_BASKET,
+          basket: [],
+        });
+        dispatch({
+          type: actionTypes.SET_USER,
+          basket: null,
+        });
+        navigate("/");
+      }
+    }
 
   return (
     <div className={classes.root}>
@@ -31,11 +51,11 @@ export default function Navbar() {
           </IconButton>
           </Link>
           <Typography color="#913f6e" variant="h6" component="div" sx={{ flexGrow: 1 }}  >
-            Welcome💥
+            Welcome {user ? user.email : ""}💥
           </Typography>
           <Link to="/signin">
-           <Button color="warning" className={classes.buttonLogin} variant="outlined">
-            <strong>Sign In 📨</strong>
+           <Button color="warning" className={classes.buttonLogin} variant="outlined" onClick={handleAuth}>
+            <strong>{user ? "Sign Out" : "Sign In"}</strong>
           </Button> 
           </Link>
           <Link to="/checkout-page">

@@ -14,7 +14,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Link as RouteLink, useNavigate} from "react-router-dom"
-import { auth } from '../firebase';
+import firebaseApp from '../firebase';
+import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
+const auth = getAuth(firebaseApp)
 
 
 function Copyright(props) {
@@ -36,15 +38,17 @@ export default function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     let navigate = useNavigate();
+    
     const signup = (e) =>{
         e.preventDefault();
-        auth.createUserWithEmailAndPassword(email, password).then((auth)=>{
+        createUserWithEmailAndPassword(auth, email, password).then((auth)=>{
             console.log(auth);
             if(auth){
                 navigate("/");
             }
         }).catch(err=>alert(err.message))
     }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
