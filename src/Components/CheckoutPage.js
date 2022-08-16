@@ -3,7 +3,7 @@ import { makeStyles} from '@mui/styles';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import CheckoutCard from "../Components/CheckoutCard"
-import Total from "./Total"
+import Total from "./total"
 import {useStateValue} from '../StateProvider';
 
 
