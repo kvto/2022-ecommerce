@@ -13,7 +13,7 @@ export default function Checkout() {
   const backStep = () => setActivestep((prevActivestep) => prevActivestep - 1)
 
 
-  const Form = () => activeStep === 0 ? <AddressForm /> : <PaymentForm/>
+  const Form = () => activeStep === 0 ? <AddressForm nextStep={nextStep}/> : <PaymentForm/>
 
   return (
     <>
