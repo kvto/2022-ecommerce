@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -12,14 +12,14 @@ import Typography from '@mui/material/Typography';
 import { deepPurple } from '@mui/material/colors';
 import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { makeStyles} from '@mui/styles'
-import {useStateValue} from '../StateProvider'
+import { makeStyles } from '@mui/styles'
+import { useStateValue } from '../StateProvider'
 import GoogleFontLoader from 'react-google-font-loader';
 import NoSsr from '@mui/base/NoSsr';
 import accounting from 'accounting';
 import cx from 'clsx';
 import Badge from '@mui/material/Badge';
-import {actionTypes} from '../reducer'
+import { actionTypes } from '../reducer'
 const family = 'Rubik';
 
 
@@ -34,9 +34,9 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function Product({product : { id, name, productType, image, price, rating, description, avatar, tallas}}) {
+export default function Product({ product: { id, name, productType, image, price, rating, description, avatar, tallas } }) {
   const classes = useStyles();
-  const [{basket}, dispatch] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -60,85 +60,85 @@ export default function Product({product : { id, name, productType, image, price
     })
   }
   return (
-<div className={classes.section}>
-    <NoSsr>
+    <div className={classes.section}>
+      <NoSsr>
         <GoogleFontLoader fonts={[{ font: family, weights: [900, 700] }]} />
       </NoSsr>
-    <Card sx={{ maxWidth: 200 }} className={cx(classes.card)} style={{backgroundColor: "#9975aa"}}>
-      
-      <CardHeader style={{color: "#ffff"}} className={classes.header}
-        avatar={
-          <Avatar sx={{ bgcolor: deepPurple[400] }} aria-label="recipe">
-            {avatar}
-            <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            variant="dot"
-            >
-          </StyledBadge>
-          </Avatar>
-        }
-        action={
-          <Typography className={classes.precio}
-            variant='h6'
-            color='white'
-            fontWeight= "bold"
-            fontFamily= "Comic Sans">
-            {accounting.formatMoney(price, "PEN ")}
-          </Typography>
-        }
-        title={productType}
-        subheader={tallas}
-        fontFamily= "Comic Sans"
-      />
-      <CardMedia
-        className={classes.media}
-        component="img"
-        height="194"
-        image= {image}
-        alt=" "
-      />
-      <CardContent className={classes.cardcontent}>
-        <Typography variant="body" color="white">
-          {name}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="Add to Cart" onClick={addToBasket}>
-          <AddShoppingCart fontSize='large' />
-        </IconButton>
-        <IconButton aria-label="share">
-          {Array(rating)
-          .fill()
-          .map((_, i) =>(
-            <p>&#11088;</p>
-          ))}
-        </IconButton>
-        <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-         
+      <Card sx={{ maxWidth: 200 }} className={cx(classes.card)} style={{ backgroundColor: "#9975aa" }}>
+
+        <CardHeader style={{ color: "#ffff" }} className={classes.header}
+          avatar={
+            <Avatar sx={{ bgcolor: deepPurple[400] }} aria-label="recipe">
+              {avatar}
+              <StyledBadge
+                overlap="circular"
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                variant="dot"
+              >
+              </StyledBadge>
+            </Avatar>
+          }
+          action={
+            <Typography className={classes.precio}
+              variant='h6'
+              color='white'
+              fontWeight="bold"
+              fontFamily="Comic Sans">
+              {accounting.formatMoney(price, "PEN ")}
+            </Typography>
+          }
+          title={productType}
+          subheader={tallas}
+          fontFamily="Comic Sans"
+        />
+        <CardMedia
+          className={classes.media}
+          component="img"
+          height="194"
+          image={image}
+          alt=" "
+        />
+        <CardContent className={classes.cardcontent}>
           <Typography variant="body" color="white">
-            {description}
+            {name}
           </Typography>
         </CardContent>
-      </Collapse>
-    </Card>
+        <CardActions disableSpacing>
+          <IconButton aria-label="Add to Cart" onClick={addToBasket}>
+            <AddShoppingCart fontSize='large' />
+          </IconButton>
+          <IconButton aria-label="share">
+            {Array(rating)
+              .fill()
+              .map((_, i) => (
+                <p>&#11088;</p>
+              ))}
+          </IconButton>
+          <ExpandMore
+            expand={expanded}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+
+            <Typography variant="body" color="white">
+              {description}
+            </Typography>
+          </CardContent>
+        </Collapse>
+      </Card>
     </div>
   );
 }
 
 
-const useStyles = makeStyles((theme) =>({
-  media:{
+const useStyles = makeStyles((theme) => ({
+  media: {
     weight: "90px",
     height: "270px",
     fontFamily: '"Comic Sans"',
@@ -147,7 +147,7 @@ const useStyles = makeStyles((theme) =>({
     display: "grid",
     placeContent: "center",
     borderRadius: 10,
-    
+
   },
   card: {
     position: 'relative',
@@ -156,29 +156,29 @@ const useStyles = makeStyles((theme) =>({
     backgroundColor: '#e5fcfb',
     minWidth: 260,
     marginLeft: "10px",
-    opacity: 0.91,
-    },
-    header:{
-      height: "60px",
-        },
-    cardcontent:{
-      backgroundColor: "#913f6e",
-      borderRadius: 10,
-    },
-    section:{
-      // backgroundImage: `url(${image})`,
+
+  },
+  header: {
+    height: "60px",
+  },
+  cardcontent: {
+    backgroundColor: "#913f6e",
+    borderRadius: 10,
+  },
+  section: {
+    // backgroundImage: `url(${image})`,
 
 
-      },
-      body: {
-        color: "#ffff"
-      },
-      precio:{
-        display:"flex",
-        position: "relative",
-        margin: "10px",
-        fontFamily: "Comic Sans"
-      }
+  },
+  body: {
+    color: "#ffff"
+  },
+  precio: {
+    display: "flex",
+    position: "relative",
+    margin: "10px",
+    fontFamily: "Comic Sans"
+  }
 }));
 
 const StyledBadge = styled(Badge)(({ theme }) => ({

@@ -1,28 +1,29 @@
 import { makeStyles } from "@mui/styles";
-
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme();
 export default makeStyles(() => ({
 
-    appBar:{
+    appBar: {
         position: "relative",
+
     },
-    layout:{
+    layout: {
         width: "auto",
         marginLeft: theme.spacing(2),
         marginRight: theme.spacing(2),
-        [theme.breakpoints.up(600 + theme.spacing(2)*2)]:{
+        [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
             width: 600,
             marginLeft: "auto",
-        marginRight: "auto",
+            marginRight: "auto",
+
         },
     },
-    paper:{
+    paper: {
         marginTop: theme.spacing(3),
         marginBottom: theme.spacing(3),
         padding: theme.spacing(3),
-        [theme.breakpoints.up(600 + theme.spacing(2)*2)]:{
+        [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
             marginTop: theme.spacing(6),
             marginBottom: theme.spacing(6),
             padding: theme.spacing(3),
@@ -30,6 +31,7 @@ export default makeStyles(() => ({
     },
     stepper: {
         padding: theme.spacing(3, 0, 5),
+        opacity: 0.91,
     },
     buttons: {
         display: "flex",
