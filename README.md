@@ -14,3 +14,32 @@ as well as jacket for ladies and for gentlemen. Also unisex caps
   <img height="200" src="./img/5.png" />
   <img height="200" src="./img/6.png" />
 </p>
+
+
+## More info about me: 
+<div id="badges" >
+Ing. Kevin J. Montero Zea 
+</div>
+<div id="badges" >
+CE: 004712881 🆔
+</div>
+<div id="badges" >
++51-913-695-382 📱
+</div>
+<div id="badges" >
+<a href="https://www.linkedin.com/in/kevin913montero/">
+    LinkedIn 👨‍🦰
+  </a>
+</div>
+<div id="badges" >
+<a href="https://portfoliokjmz.netlify.app/">
+    Portfolio 💼
+  </a>
+</div>
+
+
+<p align="center">
+<img height="50" src="./img/logo2.png" />
+<img height="50" src="./img/logo3.png" />
+<img height="50" src="./img/Sin título.png" />
+</p>
