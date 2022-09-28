@@ -15,6 +15,20 @@ as well as jacket for ladies and for gentlemen. Also unisex caps
   <img height="200" src="./img/6.png" />
 </p>
 
+1.- Once the project is downloaded, Once the project is downloaded, access the terminal of your console.
+
+    * - To access open the terminal (Control + Ñ) or (Terminal - New Terminal).
+    * - Run the command "npm install"
+   
+<p align="center">
+  <img height="200" src="./img/7.png" />
+</p>
+
+Once having both steps perfectly, we proceed to execute the environments
+
+<p align="center">
+  <img height="200" src="./img/8.png" />
+</p>
 
 ## More info about me: 
 <div id="badges" >
