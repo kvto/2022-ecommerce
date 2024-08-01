@@ -1,4 +1,21 @@
-# Welcome to the Ecommerce - Stamping with Vinil Textil App 👕👖
+<div align="center">
+<h1 align="center">Welcome to the Ecommerce - Stamping with Vinil Textil App 👕👖</h1>
+  <img height="200" src="./img/1.png" />
+  <img height="200" src="./img/2.png" />
+  <img height="200" src="./img/3.png" />
+  <img height="200" src="./img/4.png" />
+  <img height="200" src="./img/5.png" />
+  <img height="200" src="./img/6.png" />
+  <div>
+  <br />
+    <img src="https://img.shields.io/badge/-React.Js-black?style=for-the-badge&logoColor=black&logo=react&color=61DAFB" alt="reactjs" />
+    <img src="https://img.shields.io/badge/-Javascript-black?style=for-the-badge&logoColor=black&logo=javascript&color=F7DF1E" alt="javascript" />
+    <img src="https://img.shields.io/badge/-CSS-black?style=for-the-badge&logoColor=black&logo=css3&color=1572B6" alt="css" />
+    <img src="https://img.shields.io/badge/-Firebase-black?style=for-the-badge&logoColor=black&logo=firebase&color=339933" alt="nodejs" />
+  </div>
+</div>
+<br />
+</div>
 
 An application whose purpose is to acquire through a payment system the different products 
 printed with the different varieties of designs made of textile vinyl. 
@@ -7,12 +24,7 @@ as well as jacket for ladies and for gentlemen. Also unisex caps
 
 # Steps to run the project 🚨:
 <p align="cener">
-  <img height="200" src="./img/1.png" />
-  <img height="200" src="./img/2.png" />
-  <img height="200" src="./img/3.png" />
-  <img height="200" src="./img/4.png" />
-  <img height="200" src="./img/5.png" />
-  <img height="200" src="./img/6.png" />
+  
 </p>
 
 1.- Once the project is downloaded, Once the project is downloaded, access the terminal of your console.
